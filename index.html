@@ -1,198 +1,110 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LSSD | Программа «Возвращение домой»</title>
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="//://code.jquery.com">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com">
+    <script src="https://code.jquery.com"></script>
+    <script src="https://code.jquery.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
+
+    <title>Программа возвращения домой | LSSD</title>
+    
     <style>
-        :root {
-            --bg-color: #121212;
-            --container-bg: #1e1e1e;
-            --accent-color: #c5a059; /* Золотой */
-            --text-color: #e8e6e3;
-            --input-bg: #2a2a2a;
-            --border-color: #333;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Шапка сайта */
-        .header {
-            background: #000;
-            border-bottom: 2px solid var(--accent-color);
-            padding: 15px 50px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .header-logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-img {
-            width: 50px;
-            height: 50px;
-            background: var(--accent-color); /* Заглушка под лого */
-            border-radius: 50%;
-        }
-
-        .header-title h1 {
-            font-size: 18px;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .header-title p {
-            font-size: 12px;
-            margin: 0;
-            color: var(--accent-color);
-            font-style: italic;
-        }
-
-        /* Контент */
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: var(--container-bg);
-            border: 1px solid var(--border-color);
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        h2 {
-            text-align: center;
-            border-bottom: 1px solid var(--accent-color);
-            padding-bottom: 15px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-        }
-
-        .section-title {
-            background: rgba(197, 160, 89, 0.1);
-            padding: 10px;
-            font-size: 14px;
-            font-weight: bold;
-            color: var(--accent-color);
-            margin: 20px 0;
-            border-left: 4px solid var(--accent-color);
-            text-transform: uppercase;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            font-size: 13px;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        input[type="text"], textarea {
-            width: 100%;
-            padding: 12px;
-            background: var(--input-bg);
-            border: 1px solid var(--border-color);
-            color: #fff;
-            border-radius: 4px;
-            box-sizing: border-box;
-            transition: 0.3s;
-        }
-
-        input:focus, textarea:focus {
-            border-color: var(--accent-color);
-            outline: none;
-            background: #333;
-        }
-
-        .btn-submit {
-            background: var(--accent-color);
-            color: #000;
-            border: none;
-            padding: 15px 30px;
-            font-weight: bold;
-            text-transform: uppercase;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
-
-        .btn-submit:hover {
-            background: #d4b475;
-            letter-spacing: 2px;
-        }
-
-        .footer-note {
-            text-align: center;
-            font-size: 11px;
-            color: #666;
-            margin-top: 20px;
-        }
+        /* Настройка цветов под LSSD */
+        .navbar-main { background-color: #1b3022 !important; border-bottom: 3px solid #c5a059; }
+        .topbar { background-color: #142118 !important; border-bottom: 1px solid #c5a059; }
+        .department-name { color: white; font-weight: bold; text-transform: uppercase; line-height: 1.2; margin-left: 45px; }
+        .department-name span { display: block; font-size: 0.7rem; color: #c5a059; font-style: italic; }
+        .sfpd-nav-link { color: rgba(255,255,255,0.8) !important; }
+        .sfpd-nav-link.active { color: #c5a059 !important; }
+        .logo-container { position: absolute; left: -60px; top: -15px; z-index: 100; }
     </style>
 </head>
+
 <body>
-
-    <header class="header">
-        <div class="header-logo">
-            <div class="logo-img"></div> <!-- Сюда вставь тег <img> со своим лого LSSD -->
-            <div class="header-title">
-                <h1>Департамент Шерифа Лос-Сантоса</h1>
-                <p>A Tradition of Service</p>
-            </div>
-        </div>
-        <div style="font-size: 12px; color: var(--accent-color);">Служба спасения: экстренные службы</div>
-    </header>
-
-    <div class="container">
-        <h2>Программа «Возвращение домой»</h2>
-
-        <div class="section-title">1. Информация о прошлых местах игры</div>
         
-        <div class="form-group">
-            <label>1.1. НИК-НЕЙМ ВАШЕГО ДЕЙСТВУЮЩЕГО ПЕРСОНАЖА:</label>
-            <input type="text" placeholder="Заполнить...">
+<header class="sfpd-header">
+    <nav class="topbar d-flex justify-content-between align-items-center px-3 px-md-4">
+        <div class="d-flex align-items-center text-white">
+            <img src="https://sd.ls-services.ru" height="25" width="25" class="mr-2" alt="Герб">
+            <b>LOS SANTOS COUNTY</b>
         </div>
-
-        <div class="form-group">
-            <label>1.2. ПРОЕКТЫ, СООБЩЕСТВА И СЕРВЕРА, ГДЕ ВЫ ИГРАЛИ:</label>
-            <textarea rows="4" placeholder="Развернутый ответ..."></textarea>
+        <div class="d-flex align-items-center text-white" style="font-size: 0.9rem;">
+            <i class="fas fa-phone-alt mr-2"></i>
+            Для экстренных вызовов: 
+            <span class="emergency__number" style="color: #ff4d4d; font-weight: bold; margin-left: 5px;">emergency services</span>
         </div>
+    </nav>
 
-        <div class="form-group">
-            <label>1.3. ЗВАНИЕ, ДОЛЖНОСТЬ И ОТДЕЛ:</label>
-            <input type="text" placeholder="Заполнить...">
-        </div>
-
-        <div class="section-title">2. ИНФОРМАЦИЯ О ПОДАЮЩЕМ ЗАЯВЛЕНИЕ</div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <div class="form-group">
-                <label>2.1. ВАШ ВОЗРАСТ:</label>
-                <input type="text" placeholder="Заполнить...">
+    <nav class="navbar navbar-expand-lg navbar-main shadow-sm">
+        <div class="container position-relative">
+            <div class="logo-container">
+                <img src="https://sd.ls-services.ru" height="90" alt="Логотип LSSD">
             </div>
-            <div class="form-group">
-                <label>2.2. ССЫЛКА НА ВКОНТАКТЕ:</label>
-                <input type="text" placeholder="://vk.com...">
+            
+            <a href="/" class="navbar-brand sfpd-brand">
+                <div class="department-name">
+                    Los Santos County Sheriff's Department
+                    <span><i>A Tradition of Service</i></span>
+                </div>
+            </a>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link sfpd-nav-link" href="#"><i class="fas fa-shield-alt mr-2"></i>Офицерам</a></li>
+                    <li class="nav-item"><a class="nav-link sfpd-nav-link active" href="#"><i class="fas fa-users mr-2"></i>Гражданам</a></li>
+                </ul>
             </div>
         </div>
+    </nav>
+</header><br>
 
-        <button class="btn-submit">Сгенерировать код заявки</button>
+<div class="container">
+    <div class="form" style="border: 1px solid #1b3022; padding: 10px; background-color: white; color: black;">
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td style="text-align: center; width:100%;">
+                        <div style="font-weight: bold; font-size: 25px;">Программа «Возвращение домой»</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="border-bottom: 2px solid #1b3022; padding: 1px; margin-bottom: 15px;"></div>
         
-        <p class="footer-note">LSSD Recruitment Division © 2026</p>
+        <div style="padding: 5px; background-color: #1b3022; color: #FFFFFF; text-align: center; font-weight: bold;">
+            1. ИНФОРМАЦИЯ О ПРОШЛЫХ МЕСТАХ ИГРЫ
+        </div>
+        
+        <div style="border: 1px solid #000; padding: 15px; margin-top: 5px;">
+            <span style="font-weight: bold; font-size: 90%;">1.1. НИК-НЕЙМ ВАШЕГО ДЕЙСТВУЮЩЕГО ПЕРСОНАЖА:</span><br>
+            <input type="text" name="nickname" class="form-control mb-3" placeholder="Заполнить">
+
+            <span style="font-weight: bold; font-size: 90%;">1.2. ПРОЕКТЫ, СООБЩЕСТВА И СЕРВЕРА, ГДЕ ВЫ ИГРАЛИ:</span><br>
+            <textarea name="projects" class="form-control mb-3" placeholder="Развернутый ответ..." rows="3"></textarea>
+
+            <span style="font-weight: bold; font-size: 90%;">1.3. ЗВАНИЕ, ДОЛЖНОСТЬ И ПОДРАЗДЕЛЕНИЕ:</span><br>
+            <input type="text" name="history" class="form-control mb-3" placeholder="Заполнить">
+
+            <span style="font-weight: bold; font-size: 90%;">1.4. ПРИЧИНА УХОДА:</span><br>
+            <input type="text" name="leave_reason" class="form-control mb-3" placeholder="Заполнить">
+        </div>
+
+        <br>
+        <div style="padding: 5px; background-color: #1b3022; color: #FFFFFF; text-align: center; font-weight: bold;">
+            2. ИНФОРМАЦИЯ О ПОДАЮЩЕМ ЗАЯВЛЕНИЕ
+        </div>
+        
+        <div style="border: 1px solid #000; padding: 15px; margin-top: 5px;">
+            <span style="font-weight: bold; font-size: 90%;">2.1. ВАШ ВОЗРАСТ:</span><br>
+            <input type="text" name="age" class="form-control mb-3" placeholder="Заполнить">
+            
+            <span style="font-weight: bold; font-size: 90%;">2.2. СВЯЗЬ (VK/DISCORD):</span><br>
+            <input type="text" name="contacts" class="form-control mb-3" placeholder="Заполнить">
+        </div>
     </div>
-
+</div>
 </body>
 </html>
