@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -8,14 +9,14 @@
     <title>Программа возвращения домой | LSSD</title>
     
     <style>
-        /* Цвета LSSD: Темно-зеленый и золотой */
+        /* Стили LSSD */
         :root {
             --lssd-green: #1b3022;
             --lssd-gold: #c5a059;
             --lssd-dark: #142118;
         }
 
-        body { background-color: #f4f4f4; }
+        body { background-color: #f8f9fa; }
 
         .sfpd-header .topbar { 
             background-color: var(--lssd-dark); 
@@ -26,7 +27,7 @@
         .navbar-main { 
             background-color: var(--lssd-green) !important; 
             border-bottom: 3px solid var(--lssd-gold); 
-            min-height: 80px;
+            min-height: 85px;
         }
 
         .department-name { 
@@ -34,7 +35,7 @@
             font-weight: bold; 
             text-transform: uppercase; 
             line-height: 1.2; 
-            margin-left: 85px; /* Отступ под логотип */
+            margin-left: 90px;
         }
 
         .department-name span { 
@@ -42,6 +43,7 @@
             font-size: 0.75rem; 
             color: var(--lssd-gold); 
             font-style: italic;
+            letter-spacing: 1px;
         }
 
         .logo-container {
@@ -51,54 +53,41 @@
             z-index: 100;
         }
 
-        .sfpd-nav-link { color: rgba(255,255,255,0.8) !important; font-weight: 500; }
+        .sfpd-nav-link { color: rgba(255,255,255,0.9) !important; font-weight: 500; font-size: 0.9rem; }
         .sfpd-nav-link:hover { color: var(--lssd-gold) !important; }
 
-        .form-container {
+        .form-box {
             background: white;
             border: 1px solid var(--lssd-green);
-            padding: 25px;
+            padding: 30px;
             margin-top: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .section-header {
+        .section-title {
             background-color: var(--lssd-green);
             color: white;
             text-align: center;
             padding: 8px;
             font-weight: bold;
-            margin: 20px 0 15px 0;
             text-transform: uppercase;
+            margin: 20px 0 15px 0;
         }
 
-        .field-title {
-            font-weight: bold;
-            font-size: 0.85rem;
-            color: #333;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .form-control {
-            border: 1px solid #ccc;
-            border-radius: 0;
-        }
-
-        .btn-generate {
+        .field-label { font-weight: bold; font-size: 0.85rem; color: #444; margin-bottom: 5px; display: block; }
+        .form-control { border-radius: 0; border: 1px solid #ccc; }
+        
+        .btn-lssd {
             background-color: var(--lssd-green);
             color: white;
             border: 2px solid var(--lssd-gold);
             font-weight: bold;
-            padding: 12px;
             width: 100%;
+            padding: 12px;
             transition: 0.3s;
         }
 
-        .btn-generate:hover {
-            background-color: var(--lssd-dark);
-            color: var(--lssd-gold);
-        }
+        .btn-lssd:hover { background-color: var(--lssd-dark); color: var(--lssd-gold); }
     </style>
 </head>
 
@@ -109,7 +98,7 @@
         <div class="container d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center text-white">
                 <img src="https://sd.ls-services.ru" height="25" class="mr-2" alt="SIB">
-                <b style="letter-spacing: 1px; font-size: 0.8rem;">LOS SANTOS COUNTY</b>
+                <b style="font-size: 0.8rem; letter-spacing: 1px;">LOS SANTOS COUNTY</b>
             </div>
             <div class="text-white" style="font-size: 0.85rem;">
                 <i class="fas fa-phone-alt mr-2" style="color: var(--lssd-gold);"></i>
@@ -121,7 +110,7 @@
     <nav class="navbar navbar-expand-lg navbar-main shadow-sm">
         <div class="container position-relative">
             <div class="logo-container">
-                <img src="https://sd.ls-services.ru" height="100" alt="LSSD Logo">
+                <img src="https://sd.ls-services.ru" height="105" alt="LSSD Logo">
             </div>
             
             <div class="department-name">
@@ -140,84 +129,85 @@
 </header>
 
 <div class="container mb-5">
-    <div class="form-container">
-        <h2 style="text-align: center; color: var(--lssd-green); font-weight: bold; margin-bottom: 5px;">ПРОГРАММА «ВОЗВРАЩЕНИЕ ДОМОЙ»</h2>
-        <p style="text-align: center; color: #777; font-size: 0.9rem;">Los Santos County Sheriff's Department</p>
+    <div class="form-box">
+        <h2 style="text-align: center; color: var(--lssd-green); font-weight: bold; margin-bottom: 0;">ПРОГРАММА «ВOЗВРАЩЕНИЕ ДОМОЙ»</h2>
+        <p style="text-align: center; color: #666; font-size: 0.9rem;">Los Santos County Sheriff's Department</p>
 
-        <div class="section-header">1. ИНФОРМАЦИЯ О ПРОШЛЫХ МЕСТАХ ИГРЫ</div>
+        <div class="section-title">1. ИНФОРМАЦИЯ О ПРОШЛОЙ ИГРЕ</div>
         
         <div class="row">
-            <div class="col-md-12 mb-3">
-                <label class="field-title">1.1. НИК-НЕЙМ ВАШЕГО ДЕЙСТВУЮЩЕГО ПЕРСОНАЖА:</label>
-                <input type="text" id="nickname" class="form-control" placeholder="Напр. James_Mancini">
+            <div class="col-12 mb-3">
+                <label class="field-label">1.1. НИК-НЕЙМ ВАШЕГО ДЕЙСТВУЮЩЕГО ПЕРСОНАЖА:</label>
+                <input type="text" id="nick" class="form-control" placeholder="Nick_Name">
             </div>
-            <div class="col-md-12 mb-3">
-                <label class="field-title">1.2. ПРОЕКТЫ, СООБЩЕСТВА И СЕРВЕРА, ГДЕ ВЫ ИГРАЛИ:</label>
-                <textarea id="projects" class="form-control" rows="3" placeholder="Развернутый ответ..."></textarea>
+            <div class="col-12 mb-3">
+                <label class="field-label">1.2. ПРОЕКТЫ И СООБЩЕСТВА, ГДЕ ВЫ ИГРАЛИ:</label>
+                <textarea id="exp" class="form-control" rows="3" placeholder="Развернутый ответ..."></textarea>
             </div>
-            <div class="col-md-12 mb-3">
-                <label class="field-title">1.3. ЗВАНИЕ, ДОЛЖНОСТЬ И ПОДРАЗДЕЛЕНИЕ:</label>
-                <input type="text" id="history" class="form-control" placeholder="Deputy Sheriff II, OSS">
+            <div class="col-12 mb-3">
+                <label class="field-label">1.3. ЗВАНИЕ, ДОЛЖНОСТЬ И ПОДРАЗДЕЛЕНИЕ:</label>
+                <input type="text" id="rank" class="form-control" placeholder="Напр. Deputy Sheriff II, SEB">
             </div>
-            <div class="col-md-12 mb-3">
-                <label class="field-title">1.4. ПРИЧИНА УХОДА:</label>
-                <input type="text" id="leave_reason" class="form-control" placeholder="Заполнить">
+            <div class="col-12 mb-3">
+                <label class="field-label">1.4. ПРИЧИНА УХОДА:</label>
+                <input type="text" id="reason" class="form-control" placeholder="Заполнить">
             </div>
         </div>
 
-        <div class="section-header">2. ИНФОРМАЦИЯ О ПОДАЮЩЕМ ЗАЯВЛЕНИЕ</div>
+        <div class="section-title">2. ИНФОРМАЦИЯ О ПОДАЮЩЕМ ЗАЯВЛЕНИЕ</div>
         
         <div class="row">
             <div class="col-md-6 mb-3">
-                <label class="field-title">2.1. ВАШ ВОЗРАСТ:</label>
+                <label class="field-label">2.1. ВАШ ВОЗРАСТ:</label>
                 <input type="number" id="age" class="form-control" placeholder="18">
             </div>
             <div class="col-md-6 mb-3">
-                <label class="field-title">2.2. ССЫЛКА НА VK / DISCORD:</label>
-                <input type="text" id="contacts" class="form-control" placeholder="://vk.com...">
+                <label class="field-label">2.2. ССЫЛКА НА VK / DISCORD:</label>
+                <input type="text" id="social" class="form-control" placeholder="://vk.com...">
             </div>
-            <div class="col-md-12 mb-3">
-                <label class="field-title">2.3. ДОКАЗАТЕЛЬСТВА ИГРЫ (ССЫЛКА):</label>
-                <input type="text" id="screens" class="form-control" placeholder="://imgur.com...">
+            <div class="col-12 mb-3">
+                <label class="field-label">2.3. ДОКАЗАТЕЛЬСТВА ИГРЫ (ССЫЛКИ):</label>
+                <input type="text" id="proof" class="form-control" placeholder="://imgur.com...">
             </div>
         </div>
 
-        <button onclick="generateBB()" class="btn btn-generate mt-3">СГЕНЕРИРОВАТЬ BB-КОД ДЛЯ ФОРУМА</button>
+        <button onclick="makeBB()" class="btn btn-lssd mt-3">СГЕНЕРИРОВАТЬ КОД ДЛЯ ФОРУМА</button>
 
-        <div id="result" class="mt-4" style="display: none;">
-            <label class="field-title">СКОПИРУЙТЕ КОД НИЖЕ:</label>
-            <textarea id="bbcode" class="form-control" rows="8" readonly style="background: #fdfdfd; font-family: 'Courier New', Courier, monospace;"></textarea>
+        <div id="resultBlock" class="mt-4" style="display: none;">
+            <label class="field-label">СКОПИРУЙТЕ ЭТОТ КОД И ВСТАВЬТЕ В ТЕМУ:</label>
+            <textarea id="bboutput" class="form-control" rows="10" readonly style="font-family: monospace; background: #fdfdfd;"></textarea>
         </div>
     </div>
 </div>
 
 <script>
-function generateBB() {
-    const fields = {
-        nick: document.getElementById('nickname').value,
-        projects: document.getElementById('projects').value,
-        hist: document.getElementById('history').value,
-        leave: document.getElementById('leave_reason').value,
-        age: document.getElementById('age').value,
-        contacts: document.getElementById('contacts').value,
-        screens: document.getElementById('screens').value
+function makeBB() {
+    const d = {
+        n: document.getElementById('nick').value,
+        e: document.getElementById('exp').value,
+        r: document.getElementById('rank').value,
+        rs: document.getElementById('reason').value,
+        a: document.getElementById('age').value,
+        s: document.getElementById('social').value,
+        p: document.getElementById('proof').value
     };
 
-    let bb = `[CENTER][IMG]https://sd.ls-services.ru[/IMG]\n`;
-    bb += `[B][SIZE=6]BACK HOME PROGRAM[/SIZE][/B]\n`;
-    bb += `[COLOR=#c5a059][B]Los Santos County Sheriff's Department[/B][/COLOR][/CENTER]\n\n`;
-    bb += `[B]1. IC ИНФОРМАЦИЯ[/B]\n`;
-    bb += `[B]1.1. Ник-нейм:[/B] ${fields.nick}\n`;
-    bb += `[B]1.2. Опыт игры:[/B] ${fields.projects}\n`;
-    bb += `[B]1.3. Звание/Должность:[/B] ${fields.hist}\n`;
-    bb += `[B]1.4. Причина ухода:[/B] ${fields.leave}\n\n`;
-    bb += `[B]2. OOC ИНФОРМАЦИЯ[/B]\n`;
-    bb += `[B]2.1. Возраст:[/B] ${fields.age}\n`;
-    bb += `[B]2.2. Связь:[/B] ${fields.contacts}\n`;
-    bb += `[B]2.3. Доказательства:[/B] [URL]${fields.screens}[/URL]`;
+    let code = `[CENTER][IMG]https://sd.ls-services.ru[/IMG]\n`;
+    code += `[B][SIZE=6]BACK HOME PROGRAM[/SIZE][/B]\n`;
+    code += `[COLOR=#c5a059][B]Los Santos County Sheriff's Department[/B][/COLOR][/CENTER]\n\n`;
+    code += `[B]1. ИНФОРМАЦИЯ О ПРОШЛОЙ ИГРЕ[/B]\n`;
+    code += `[B]1.1. Ник:[/B] ${d.n}\n`;
+    code += `[B]1.2. Опыт:[/B] ${d.e}\n`;
+    code += `[B]1.3. Звание/Отдел:[/B] ${d.r}\n`;
+    code += `[B]1.4. Причина:[/B] ${d.rs}\n\n`;
+    code += `[B]2. OOC ИНФОРМАЦИЯ[/B]\n`;
+    code += `[B]2.1. Возраст:[/B] ${d.a}\n`;
+    code += `[B]2.2. Связь:[/B] ${d.s}\n`;
+    code += `[B]2.3. Доказательства:[/B] ${d.p}`;
 
-    document.getElementById('bbcode').value = bb;
-    document.getElementById('result').style.display = 'block';
+    document.getElementById('bboutput').value = code;
+    document.getElementById('resultBlock').style.display = 'block';
+    window.scrollTo(0, document.body.scrollHeight);
 }
 </script>
 
