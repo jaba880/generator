@@ -4,212 +4,308 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com">
-    <title>Программа возвращения домой | LSSD</title>
-    
-    <style>
-        /* Стили LSSD */
-        :root {
-            --lssd-green: #1b3022;
-            --lssd-gold: #c5a059;
-            --lssd-dark: #142118;
-        }
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/common/css/style.css">
+    <link rel="stylesheet" href="/common/css/micromodal.css">
+    <script src="/common/js/micromodal.min.js"></script>
+    <script src="/common/js/utils.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-        body { background-color: #f8f9fa; }
-
-        .sfpd-header .topbar { 
-            background-color: var(--lssd-dark); 
-            border-bottom: 2px solid var(--lssd-gold); 
-            padding: 5px 0;
-        }
-
-        .navbar-main { 
-            background-color: var(--lssd-green) !important; 
-            border-bottom: 3px solid var(--lssd-gold); 
-            min-height: 85px;
-        }
-
-        .department-name { 
-            color: white; 
-            font-weight: bold; 
-            text-transform: uppercase; 
-            line-height: 1.2; 
-            margin-left: 90px;
-        }
-
-        .department-name span { 
-            display: block; 
-            font-size: 0.75rem; 
-            color: var(--lssd-gold); 
-            font-style: italic;
-            letter-spacing: 1px;
-        }
-
-        .logo-container {
-            position: absolute;
-            left: 15px;
-            top: -15px;
-            z-index: 100;
-        }
-
-        .sfpd-nav-link { color: rgba(255,255,255,0.9) !important; font-weight: 500; font-size: 0.9rem; }
-        .sfpd-nav-link:hover { color: var(--lssd-gold) !important; }
-
-        .form-box {
-            background: white;
-            border: 1px solid var(--lssd-green);
-            padding: 30px;
-            margin-top: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .section-title {
-            background-color: var(--lssd-green);
-            color: white;
-            text-align: center;
-            padding: 8px;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin: 20px 0 15px 0;
-        }
-
-        .field-label { font-weight: bold; font-size: 0.85rem; color: #444; margin-bottom: 5px; display: block; }
-        .form-control { border-radius: 0; border: 1px solid #ccc; }
-        
-        .btn-lssd {
-            background-color: var(--lssd-green);
-            color: white;
-            border: 2px solid var(--lssd-gold);
-            font-weight: bold;
-            width: 100%;
-            padding: 12px;
-            transition: 0.3s;
-        }
-
-        .btn-lssd:hover { background-color: var(--lssd-dark); color: var(--lssd-gold); }
-    </style>
+    <title>Программа возвращения домой | NYC-PD.RU</title>
 </head>
 
 <body>
+<style>
 
+</style>
+    <body>
+        
 <header class="sfpd-header">
-    <nav class="topbar">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center text-white">
-                <img src="https://sd.ls-services.ru" height="25" class="mr-2" alt="SIB">
-                <b style="font-size: 0.8rem; letter-spacing: 1px;">LOS SANTOS COUNTY</b>
-            </div>
-            <div class="text-white" style="font-size: 0.85rem;">
-                <i class="fas fa-phone-alt mr-2" style="color: var(--lssd-gold);"></i>
-                Для экстренных вызовов: <span style="color: #ff4d4d; font-weight: bold;">emergency services</span>
-            </div>
+    <nav class="topbar d-flex justify-content-between align-items-center px-3 px-md-4">
+        <div class="d-flex align-items-center text-white">
+            <img src="https://www.upload.ee/image/16078694/sfcitylogo2color.png" height="25" width="25" class="mr-2" alt="Герб">
+            <b>САН-ФИЕРРО</b>
+        </div>
+        <div class="d-flex align-items-center text-white" style="font-size: 0.9rem;">
+            <i class="fas fa-phone-alt mr-2"></i>
+            Для экстренных ситуаций: 
+            <span class="emergency__number">911</span>
+        </div>
         </div>
     </nav>
 
     <nav class="navbar navbar-expand-lg navbar-main shadow-sm">
         <div class="container position-relative">
+            <!-- Логотип, перекрывающий оба навбара -->
             <div class="logo-container">
-                <img src="https://sd.ls-services.ru" height="105" alt="LSSD Logo">
+                <img src="\htmlforms\lspd disabled\sfpd_logo.png" class="sfpd-logo" alt="Логотип SFPD">
             </div>
             
-            <div class="department-name">
-                Los Santos County Sheriff's Department
-                <span>A Tradition of Service</span>
-            </div>
+            <a href="/" class="navbar-brand sfpd-brand">
+                <div class="department-name">
+                    Департамент полиции Сан-Фиерро
+                    <span><i>Oro en paz, fierro en guerra</i></span>
+                </div>
+            </a>
             
-            <div class="collapse navbar-collapse">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link sfpd-nav-link" href="#"><i class="fas fa-shield-alt mr-1"></i> Департамент</a></li>
-                    <li class="nav-item"><a class="nav-link sfpd-nav-link" href="#"><i class="fas fa-users mr-1"></i> Гражданам</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link sfpd-nav-link" href="/sfpd.html">
+                            <i class="fas fa-shield-alt mr-2"></i>
+                            Офицерам
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sfpd-nav-link active" href="/sfpd/civil.html">
+                            <i class="fas fa-users mr-2"></i>
+                            Гражданам
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link sfpd-nav-link" href="/IAD_enter.html">
+                            <i class="fas fa-file-invoice"></i>
+                            Инспекторам ОВР
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-</header>
+</header><br>
 
-<div class="container mb-5">
-    <div class="form-box">
-        <h2 style="text-align: center; color: var(--lssd-green); font-weight: bold; margin-bottom: 0;">ПРОГРАММА «ВOЗВРАЩЕНИЕ ДОМОЙ»</h2>
-        <p style="text-align: center; color: #666; font-size: 0.9rem;">Los Santos County Sheriff's Department</p>
-
-        <div class="section-title">1. ИНФОРМАЦИЯ О ПРОШЛОЙ ИГРЕ</div>
-        
-        <div class="row">
-            <div class="col-12 mb-3">
-                <label class="field-label">1.1. НИК-НЕЙМ ВАШЕГО ДЕЙСТВУЮЩЕГО ПЕРСОНАЖА:</label>
-                <input type="text" id="nick" class="form-control" placeholder="Nick_Name">
-            </div>
-            <div class="col-12 mb-3">
-                <label class="field-label">1.2. ПРОЕКТЫ И СООБЩЕСТВА, ГДЕ ВЫ ИГРАЛИ:</label>
-                <textarea id="exp" class="form-control" rows="3" placeholder="Развернутый ответ..."></textarea>
-            </div>
-            <div class="col-12 mb-3">
-                <label class="field-label">1.3. ЗВАНИЕ, ДОЛЖНОСТЬ И ПОДРАЗДЕЛЕНИЕ:</label>
-                <input type="text" id="rank" class="form-control" placeholder="Напр. Deputy Sheriff II, SEB">
-            </div>
-            <div class="col-12 mb-3">
-                <label class="field-label">1.4. ПРИЧИНА УХОДА:</label>
-                <input type="text" id="reason" class="form-control" placeholder="Заполнить">
-            </div>
+<body>
+    <div class="form" style="border: 1px solid #0F283E; padding: 10px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);">
+        <table width="100%">
+            <tbody>
+                    <td style="vertical-align: centered_text; width:100%;  color: rgb(0, 0, 0); ">
+                        <div align="center"><span style="font-weight: bold; font-size: 25px;">Программа «Возвращение домой»</span> </span> </div>
+                    </td>
+                    <td style="vertical-align: top; width:26%; padding-left:10px;">
+                        <div align="right"><span style="font-size: 85%; line-height: 116%; color: #0F283E;">
+                            </span></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="border-bottom: 1px solid #0F283E; padding: 1px;"></div> <br>
+        <div style="padding: 2px; background-color: #0F283E;"><span><span style="color: #FFFFFF">
+                    <div align="center">1. ИНФОРМАЦИЯ О ПРОШЛЫХ МЕСТАХ ИГРЫ</div>
+                </span></span></div>
+        <div style="border: 1px solid #000; padding: 5px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);"><span style="color: #000000">
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td style="vertical-align: top; width:33%; padding-right:10px;"><span style="font-weight: bold; font-size: 90%; line-height: 116%;">1.1. НИК-НЕЙМ ВАШЕГО ДЕЙСТВУЮЩЕГО ПЕРСОНАЖА:</span><br>
+                                <div style="background-color:white; color: #555; border:1px solid #ccc; margin-right:10px"><input type="text" name="nickname" placeholder="Заполнить">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table><br>
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td style="vertical-align: top; width:33%; padding-right:10px;"><span style="font-weight: bold; font-size: 90%; line-height: 116%;">1.2. ПРОЕКТЫ, СООБЩЕСТВА И СЕРВЕРА, ГДЕ ВЫ ИГРАЛИ:</span><br>
+                                <div style="background-color:white; border:1px solid #ccc; color: #555555; padding: 10px"><textarea name="projects" placeholder="Развернутый ответ на вопрос" cols="78"></textarea></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table><br>
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td style="vertical-align: top; width:33%; padding-right:10px;"><span style="font-weight: bold; font-size: 90%; line-height: 116%;">1.3. ЗВАНИЕ, ДОЛЖНОСТЬ И ОТДЕЛ:</span><br>
+                                <div style="background-color:white; color: #555; border:1px solid #ccc; margin-right:10px"><input type="text" name="history" placeholder="Заполнить">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table><br>
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td style="vertical-align: top; width:33%; padding-right:10px;"><span style="font-weight: bold; font-size: 90%; line-height: 116%;">1.4. ПРИЧИНА УХОДА:</span><br>
+                                <div style="background-color:white; color: #555; border:1px solid #ccc; margin-right:10px"><input type="text" name="leave_reason" placeholder="Заполнить">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+        </div><br>
+        <div style="padding: 2px; background-color: #0F283E;"><span><span style="color: #FFFFFF">
+            <div align="center">2. ИНФОРМАЦИЯ О ПОДАЮЩЕМ ЗАЯВЛЕНИЕ</div>
+        </span></span></div>
+        <div style="border: 1px solid #000; padding: 5px; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);"><span style="color: #000000">
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td style="vertical-align: top; width:33%; padding-right:10px;"><span style="font-weight: bold; font-size: 90%; line-height: 116%;">2.1. ВАШ ВОЗРАСТ:</span><br>
+                                <div style="background-color:white; color: #555; border:1px solid #ccc; margin-right:10px"><input type="text" name="age" placeholder="Заполнить">
+                                </div>
+                            </td>
+                            <td style="vertical-align: top; width:33%; padding-right:10px;"><span style="font-weight: bold; font-size: 90%; line-height: 116%;">2.2. ССЫЛКА НА ВКОНТАКТЕ:</span><br>
+                                <div style="background-color:white; color: #555; border:1px solid #ccc; margin-right:10px"><input type="text" name="vk" placeholder="Заполнить">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table><br>
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td style="vertical-align: top; width:33%; padding-right:10px;"><span style="font-weight: bold; font-size: 90%; line-height: 116%;">2.3. КВЕНТА ВАШЕГО ПЕРСОНАЖА:</span><br>
+                                <div style="background-color:white; border:1px solid #ccc; color: #555555; padding: 10px"><textarea name="qventa" placeholder="Развернутый ответ на вопрос" cols="78"></textarea></div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table><br>
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td style="vertical-align: top; width:33%; padding-right:10px;"><span style="font-weight: bold; font-size: 90%; line-height: 116%;">2.4. ПЛАНЫ НА ПЕРСОНАЖА:</span><br>
+                                <div style="background-color:white; color: #555; border:1px solid #ccc; margin-right:10px"><input type="text" name="plans" placeholder="Заполнить">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table><br>
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td style="vertical-align: top; width:33%; padding-right:10px;"><span style="font-weight: bold; font-size: 90%; line-height: 116%;">2.5. СПИСОК ПОЖЕЛАНИЙ:</span><br>
+                                <div style="background-color:white; color: #555; border:1px solid #ccc; margin-right:10px"><input type="text" name="zhelania" placeholder="Заполнить">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table><br>
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td style="vertical-align: top; width:33%; padding-right:10px;"><span style="font-weight: bold; font-size: 90%; line-height: 116%;">2.6. ДОКАЗАТЕЛЬСТВА ВАШЕЙ ИГРЫ:</span><br>
+                                <div style="background-color:white; color: #555; border:1px solid #ccc; margin-right:10px"><input type="text" name="ss" placeholder="Ссылки на СС-ки, иные подтверждения">
+                                </div>
+                            </td>
+                            <td style="vertical-align: top; width:33%; padding-right:10px;"><span style="font-weight: bold; font-size: 90%; line-height: 116%;">2.7. СКРИНШОТ ЗАЩИТЫ НА ИГРОВОМ АККАУНТЕ (GOOGLE АУТЕНТИФИКАТОР, ПОЧТОВЫЙ ЯЩИК):</span><br>
+                                <div style="background-color:white; color: #555; border:1px solid #ccc; margin-right:10px"><input type="text" name="security" placeholder="Заполнить">
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+        </div><br>
+    
+        <div style="padding: 2px; background-color: #0F283E;"><span><span style="color: #FFFFFF">
+                <div align="center">СОГЛАШЕНИЕ</div>
+            </span></span></div>
+        </span></span>
+        <span style="font-size: 85%; line-height: 116%;"><span><div style="text-align: justify;">Я соглашаюсь, что если покину сообщество в течение испытательного срока без основательной причины, то буду занесен в черный список (ЧС) сообщества без права выхода. Я понимаю, что не все мои перечисленные пожелания могут быть удовлетворены и всё равно соглашаюсь играть. Я соглашаюсь, что мое заявление может быть отклонено без объяснения причин. Я понимаю, что в случае слива любой информации с форума и бесед, я буду занесен в черный список. Я уверяю, что все данные мною ответы в этой заявке являются правдивыми.</div><span style="font-weight: bold"><input type="checkbox" class="checkbox" name="checkbox" /> Я принимаю условия данного заявления</span>
         </div>
+       
 
-        <div class="section-title">2. ИНФОРМАЦИЯ О ПОДАЮЩЕМ ЗАЯВЛЕНИЕ</div>
-        
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label class="field-label">2.1. ВАШ ВОЗРАСТ:</label>
-                <input type="number" id="age" class="form-control" placeholder="18">
-            </div>
-            <div class="col-md-6 mb-3">
-                <label class="field-label">2.2. ССЫЛКА НА VK / DISCORD:</label>
-                <input type="text" id="social" class="form-control" placeholder="://vk.com...">
-            </div>
-            <div class="col-12 mb-3">
-                <label class="field-label">2.3. ДОКАЗАТЕЛЬСТВА ИГРЫ (ССЫЛКИ):</label>
-                <input type="text" id="proof" class="form-control" placeholder="://imgur.com...">
-            </div>
-        </div>
-
-        <button onclick="makeBB()" class="btn btn-lssd mt-3">СГЕНЕРИРОВАТЬ КОД ДЛЯ ФОРУМА</button>
-
-        <div id="resultBlock" class="mt-4" style="display: none;">
-            <label class="field-label">СКОПИРУЙТЕ ЭТОТ КОД И ВСТАВЬТЕ В ТЕМУ:</label>
-            <textarea id="bboutput" class="form-control" rows="10" readonly style="font-family: monospace; background: #fdfdfd;"></textarea>
-        </div>
+    <div class="btn-container">
+        <button class="modal__btn modal__btn-primary" onclick="showBB()">Сгенерировать</button>
+        <button class="modal__btn" onclick="window.location.assign('/sfpd/civil.html')">Назад</button>
     </div>
-</div>
 
-<script>
-function makeBB() {
-    const d = {
-        n: document.getElementById('nick').value,
-        e: document.getElementById('exp').value,
-        r: document.getElementById('rank').value,
-        rs: document.getElementById('reason').value,
-        a: document.getElementById('age').value,
-        s: document.getElementById('social').value,
-        p: document.getElementById('proof').value
-    };
+    <!-- Modal -->
+    <div class="modal fade" id="output_modal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">BBCode для копирования</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label for="output__header">Название темы</label>
+                    </div>
+                    <div class="col-9 col-lg-10">
+                        <input type="text" class="form-control" id="output__header">
+                    </div>
+                    <div class="col-3 col-lg-2">
+                        <button class="btn btn-outline-secondary" type="button" data-field="output__header" onclick="copyCode(this)">Copy</button>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label for="output__body">Код</label>
+                    </div>
+                    <div class="col-9 col-lg-10">
+                        <textarea class="form-control" rows="10" id="output__body"></textarea>
+                    </div>
+                    <div class="col-3 col-lg-2 d-flex align-items-center">
+                        <button class="btn btn-outline-secondary" type="button" data-field="output__body" onclick="copyCode(this)">Copy</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+            <button type="button" class="btn btn-primary" onclick="window.open('https://sfpd.nyc-pd.ru/posting.php?mode=post&f=15','_blank')">На форум</button>
+          </div>
+        </div>
+      </div>
+    
+    <script>
+        function generatePostTitle() {
+            var nickname = document.getElementsByName("nickname")[0].value.toUpperCase();
+            var h_output = "[ВОССТАНОВЛЕНИЕ] " + document.getElementsByName("nickname")[0].innerText;
+            h_output = "[ВОССТАНОВЛЕНИЕ] " + nickname;
+            return h_output;
+        }
+        function form2dict(form) {
+            var values = form.querySelectorAll('[name]');
+            var data = {};
+            for (var i = 0; i < values.length; i++) {
+                if (values[i].classList.contains('datepicker')) {
+                    data[values[i].getAttribute('name')] = values[i].value.toUpperCase() || 'N/A';
+                } else if (values[i].classList.contains('checkbox')) {
+                    var checked = document.getElementsByName("checkbox")[0].checked ? ('X') : ' '
+                    data[values[i].getAttribute('name')] = checked;
+                } else {
+                    data[values[i].getAttribute('name')] = values[i].value || values[i].innerText || 'N/A';
+                }
+            }
+            return data;
+        }
 
-    let code = `[CENTER][IMG]https://sd.ls-services.ru[/IMG]\n`;
-    code += `[B][SIZE=6]BACK HOME PROGRAM[/SIZE][/B]\n`;
-    code += `[COLOR=#c5a059][B]Los Santos County Sheriff's Department[/B][/COLOR][/CENTER]\n\n`;
-    code += `[B]1. ИНФОРМАЦИЯ О ПРОШЛОЙ ИГРЕ[/B]\n`;
-    code += `[B]1.1. Ник:[/B] ${d.n}\n`;
-    code += `[B]1.2. Опыт:[/B] ${d.e}\n`;
-    code += `[B]1.3. Звание/Отдел:[/B] ${d.r}\n`;
-    code += `[B]1.4. Причина:[/B] ${d.rs}\n\n`;
-    code += `[B]2. OOC ИНФОРМАЦИЯ[/B]\n`;
-    code += `[B]2.1. Возраст:[/B] ${d.a}\n`;
-    code += `[B]2.2. Связь:[/B] ${d.s}\n`;
-    code += `[B]2.3. Доказательства:[/B] ${d.p}`;
-
-    document.getElementById('bboutput').value = code;
-    document.getElementById('resultBlock').style.display = 'block';
-    window.scrollTo(0, document.body.scrollHeight);
-}
-</script>
-
+        MicroModal.init();
+        window.__bbcodeurl = '/bbforms/lscsd disabled/back_home.txt';
+        document.querySelector('[name="name"]').focus();   
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+            (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        
+            ym(101513650, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true
+            });
+        </script>
+        <noscript><div><img src="https://mc.yandex.ru/watch/101513650" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+        <!-- /Yandex.Metrika counter -->
 </body>
 </html>
